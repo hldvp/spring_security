@@ -25,7 +25,7 @@ public class UserDaoImpl implements UserDao{
     }
 
     @Override
-    public void creatUser(User user) {
+    public void createUser(User user) {
         entityManager.persist(user);
     }
 
@@ -37,5 +37,11 @@ public class UserDaoImpl implements UserDao{
     @Override
     public void deleteUser(long id) {
         entityManager.remove(getUserById(id));
+    }
+
+    @Override
+    public User getUserByUsername(String username) {
+        return entityManager.createQuery("from User where username = :username", User.class)
+                .setParameter("username",username).getSingleResult();
     }
 }

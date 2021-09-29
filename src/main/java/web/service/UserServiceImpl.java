@@ -26,8 +26,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void creatUser(User user) {
-        userDao.creatUser(user);
+    public void createUser(User user) {
+        userDao.createUser(user);
     }
 
     @Override
@@ -36,8 +36,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-
     public void deleteUser(long id) {
         userDao.deleteUser(id);
+    }
+
+    @Override
+    public User getUserByUsername(String username) {
+        return userDao.getUserByUsername(username);
     }
 }
